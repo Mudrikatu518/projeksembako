@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitra Sembako Nusantara - Partner Pertumbuhan Bisnis Anda</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Konfigurasi Tailwind & Custom CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#1E3A8A', // Biru Tua
+                        'brand-secondary': '#F59E0B', // Kuning/Emas
+                        'brand-dark': '#111827', // Abu-abu Gelap
+                        'brand-light': '#F3F4F6', // Abu-abu Sangat Terang
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Backgrounds */
+        body {
+            font-family: 'poppins', sans-serif;
+            background-color: #F3F4F6;
+            color: #111827;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.7)), url('https://images.unsplash.com/photo-1580913428023-02c695666d61?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cta-bg {
+            background-image: linear-gradient(to right, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0.95)), url('https://images.unsplash.com/photo-1606859191214-25808c434484?q=80&w=1974&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Animasi Fade-in on Scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Style untuk Header saat di-scroll */
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        /* Logic untuk Multi-Page */
+        .page-content {
+            display: none; /* Sembunyikan semua halaman by default */
+        }
+        .page-content.active {
+            display: block; /* Tampilkan hanya halaman yang aktif */
+        }
+        
+        /* Animasi transisi antar halaman */
+        @keyframes pageFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-content.active {
+            animation: pageFadeIn 0.5s ease-in-out;
+        }
+
+        /* Style untuk link navigasi yang aktif */
+        .nav-link.active {
+            color: #1E3A8A; /* brand-primary */
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======================================================================== -->
+    <!-- HEADER & NAVIGASI -->
+    <!-- ======================================================================== -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="nav-link text-2xl font-bold text-brand-primary" data-page="home">
+                    Mitra Sembako
+                </a>
+                
+                <!-- Navigasi Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-brand-primary transition duration-300" data-page="home">Beranda</a>
+                    <a href="#keunggulan" class="nav-link text-gray-600 hover:text-brand-primary transition duration-300" data-page="keunggulan">Keunggulan</a>
+                    <a href="#produk" class="nav-link text-gray-600 hover:text-brand-primary transition duration-300" data-page="produk">Produk</a>
+                    <a href="#testimoni" class="nav-link text-gray-600 hover:text-brand-primary transition duration-300" data-page="testimoni">Testimoni</a>
+                    <a href="#faq" class="nav-link text-gray-600 hover:text-brand-primary transition duration-300" data-page="faq">FAQ</a>
+                </nav>
+
+                <a href="#kontak" class="nav-link hidden md:inline-block bg-brand-secondary text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-yellow-600 transition duration-300 transform hover:scale-105" data-page="kontak">
+                    Hubungi Kami
+                </a>
+
+                <!-- Tombol Menu Mobile -->
+                <button id="mobile-menu-button" class="md:hidden text-brand-primary focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigasi Mobile (Tampil/Sembunyi dengan JS) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="#home" class="nav-link block w-full text-left px-6 py-3 text-gray-600 hover:bg-brand-light" data-page="home">Beranda</a>
+            <a href="#keunggulan" class="nav-link block w-full text-left px-6 py-3 text-gray-600 hover:bg-brand-light" data-page="keunggulan">Keunggulan</a>
+            <a href="#produk" class="nav-link block w-full text-left px-6 py-3 text-gray-600 hover:bg-brand-light" data-page="produk">Produk</a>
+            <a href="#testimoni" class="nav-link block w-full text-left px-6 py-3 text-gray-600 hover:bg-brand-light" data-page="testimoni">Testimoni</a>
+            <a href="#faq" class="nav-link block w-full text-left px-6 py-3 text-gray-600 hover:bg-brand-light" data-page="faq">FAQ</a>
+            <div class="p-4">
+                <a href="#kontak" class="nav-link block w-full text-center bg-brand-secondary text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-yellow-600 transition duration-300" data-page="kontak">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ======================================================================== -->
+        <!-- "HALAMAN" BERANDA -->
+        <!-- ======================================================================== -->
+        <section id="home-page" class="page-content">
+            <div class="hero-bg pt-32 pb-20 md:pt-48 md:pb-32 text-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
+                        Bukan Sekadar Supplier. Kami <span class="text-brand-secondary">Partner Pertumbuhan Bisnis</span> Anda.
+                    </h1>
+                    <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-200">
+                        Stok lengkap, harga kompetitif, dan layanan pengiriman andal untuk menunjang kesuksesan bisnis Anda.
+                    </p>
+                    <div class="flex justify-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#kontak" class="nav-link bg-brand-secondary text-white font-bold px-8 py-4 rounded-lg shadow-xl hover:bg-yellow-500 transition duration-300 transform hover:scale-105 text-lg" data-page="kontak">
+                            Daftar Sebagai Mitra
+                        </a>
+                        <a href="#produk" class="nav-link bg-white/20 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-lg hover:bg-white/30 transition duration-300 text-lg" data-page="produk">
+                            Lihat Produk Kami
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white py-12">
+                <div class="container mx-auto px-6">
+                    <div class="text-center">
+                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Dipercaya oleh Ratusan Pebisnis di Seluruh Nusantara</h3>
+                        <div class="flex flex-wrap justify-center items-center mt-6 space-x-8 md:space-x-12 opacity-70">
+                            <img src="https://placehold.co/120x60/cccccc/999999?text=Warung+Jaya" alt="Logo Mitra Warung Jaya" class="h-10 my-2">
+                            <img src="https://placehold.co/120x60/cccccc/999999?text=Resto+Sedap" alt="Logo Mitra Resto Sedap" class="h-10 my-2">
+                            <img src="https://placehold.co/120x60/cccccc/999999?text=Catering+Berkah" alt="Logo Mitra Catering Berkah" class="h-12 my-2">
+                            <img src="https://placehold.co/120x60/cccccc/999999?text=Toko+Makmur" alt="Logo Mitra Toko Makmur" class="h-10 my-2">
+                            <img src="https://placehold.co/120x60/cccccc/999999?text=Hotel+Nusantara" alt="Logo Mitra Hotel Nusantara" class="h-12 my-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================================== -->
+        <!-- "HALAMAN" KEUNGGULAN -->
+        <!-- ======================================================================== -->
+        <section id="keunggulan-page" class="page-content pt-24 md:pt-32">
+            <div class="py-24 md:py-32 bg-brand-light">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12 fade-in-up">
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-primary">Mengapa Memilih Kami?</h2>
+                        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Kami memahami tantangan bisnis Anda. Inilah solusi yang kami tawarkan.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 fade-in-up">
+                            <div class="bg-blue-100 text-brand-primary rounded-full w-16 h-16 flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg></div>
+                            <h3 class="text-xl font-bold mb-3 text-brand-dark">Harga Kompetitif & Transparan</h3>
+                            <p class="text-gray-600">Dapatkan harga terbaik langsung dari sumbernya. Tidak ada biaya tersembunyi.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 fade-in-up" style="transition-delay: 0.1s;">
+                            <div class="bg-blue-100 text-brand-primary rounded-full w-16 h-16 flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                            <h3 class="text-xl font-bold mb-3 text-brand-dark">Kualitas Produk Terjamin</h3>
+                            <p class="text-gray-600">Kami menerapkan kontrol kualitas yang ketat. Hanya produk terbaik yang sampai ke tangan Anda.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 fade-in-up" style="transition-delay: 0.2s;">
+                            <div class="bg-blue-100 text-brand-primary rounded-full w-16 h-16 flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2 2h8a1 1 0 001-1zM3 11h10" /></svg></div>
+                            <h3 class="text-xl font-bold mb-3 text-brand-dark">Pengiriman Cepat & Andal</h3>
+                            <p class="text-gray-600">Hindari stok kosong. Armada kami siap mengantar pesanan Anda tepat waktu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================================== -->
+        <!-- "HALAMAN" PRODUK -->
+        <!-- ======================================================================== -->
+        <section id="produk-page" class="page-content pt-24 md:pt-32">
+            <div class="py-24 md:py-32 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12 fade-in-up">
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-primary">Kategori Produk Terlengkap</h2>
+                        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Semua kebutuhan pokok untuk bisnis Anda tersedia dalam satu tempat.</p>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div class="group bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 fade-in-up"><img src="https://images.unsplash.com/photo-1599940778173-024d61060d37?q=80&w=1964&auto=format&fit=crop" alt="Beras dan Biji-bijian" class="h-40 w-full object-cover"><div class="p-4"><h4 class="font-bold text-lg text-brand-dark">Beras & Biji-bijian</h4><p class="text-sm text-gray-500">Kualitas premium & medium</p></div></div>
+                        <div class="group bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 0.1s;"><img src="https://images.unsplash.com/photo-1625772659958-d35b7f70623e?q=80&w=1974&auto=format&fit=crop" alt="Minyak Goreng" class="h-40 w-full object-cover"><div class="p-4"><h4 class="font-bold text-lg text-brand-dark">Minyak & Lemak</h4><p class="text-sm text-gray-500">Berbagai merek terpercaya</p></div></div>
+                        <div class="group bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 0.2s;"><img src="https://images.unsplash.com/photo-1587122194318-2150a1811529?q=80&w=1974&auto=format&fit=crop" alt="Gula dan Pemanis" class="h-40 w-full object-cover"><div class="p-4"><h4 class="font-bold text-lg text-brand-dark">Gula & Pemanis</h4><p class="text-sm text-gray-500">Gula pasir, gula merah, dll.</p></div></div>
+                        <div class="group bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 0.3s;"><img src="https://images.unsplash.com/photo-1604579412399-548a59c3539c?q=80&w=1964&auto=format&fit=crop" alt="Tepung dan Bahan Kue" class="h-40 w-full object-cover"><div class="p-4"><h4 class="font-bold text-lg text-brand-dark">Tepung & Bahan Kue</h4><p class="text-sm text-gray-500">Lengkap untuk produksi</p></div></div>
+                    </div>
+                    <div class="text-center mt-12 fade-in-up">
+                        <a href="#kontak" class="nav-link bg-brand-primary text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-blue-800 transition duration-300" data-page="kontak">
+                            Unduh Katalog & Pricelist Lengkap
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================================== -->
+        <!-- "HALAMAN" TESTIMONI -->
+        <!-- ======================================================================== -->
+        <section id="testimoni-page" class="page-content pt-24 md:pt-32">
+            <div class="py-24 md:py-32 bg-brand-light">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12 fade-in-up">
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-primary">Apa Kata Mitra Kami?</h2>
+                        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Kami bangga menjadi bagian dari kesuksesan mereka.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-white p-8 rounded-xl shadow-lg fade-in-up"><p class="text-gray-600 italic mb-6">"Sejak bermitra dengan Mitra Sembako Nusantara, saya tidak pernah pusing lagi soal stok. Pengiriman selalu on-time, harganya juga bagus. Omzet toko saya jadi lebih stabil."</p><div class="flex items-center"><img src="https://placehold.co/50x50/E0E7FF/1E3A8A?text=B" alt="Budi Santoso" class="w-12 h-12 rounded-full mr-4"><div><p class="font-bold text-brand-dark">Budi Santoso</p><p class="text-sm text-gray-500">Pemilik Toko Kelontong Makmur</p></div></div></div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg fade-in-up" style="transition-delay: 0.1s;"><p class="text-gray-600 italic mb-6">"Kualitas bahan baku sangat penting untuk restoran kami. MSN selalu memberikan produk dengan kualitas terbaik. Tamu kami puas, bisnis kami pun lancar."</p><div class="flex items-center"><img src="https://placehold.co/50x50/FEF3C7/F59E0B?text=S" alt="Siti Aminah" class="w-12 h-12 rounded-full mr-4"><div><p class="font-bold text-brand-dark">Siti Aminah</p><p class="text-sm text-gray-500">Chef & Owner Restoran Sedap Rasa</p></div></div></div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg fade-in-up" style="transition-delay: 0.2s;"><p class="text-gray-600 italic mb-6">"Untuk bisnis katering, ketepatan pasokan adalah segalanya. MSN sangat bisa diandalkan. Tim sales-nya juga responsif dan sangat membantu."</p><div class="flex items-center"><img src="https://placehold.co/50x50/D1FAE5/065F46?text=A" alt="Agus Wijaya" class="w-12 h-12 rounded-full mr-4"><div><p class="font-bold text-brand-dark">Agus Wijaya</p><p class="text-sm text-gray-500">Manajer Berkah Catering</p></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================================== -->
+        <!-- "HALAMAN" FAQ -->
+        <!-- ======================================================================== -->
+        <section id="faq-page" class="page-content pt-24 md:pt-32">
+            <div class="py-24 md:py-32 bg-white">
+                <div class="container mx-auto px-6 max-w-3xl">
+                    <div class="text-center mb-12 fade-in-up">
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-primary">Pertanyaan yang Sering Diajukan</h2>
+                    </div>
+                    <div class="space-y-4 fade-in-up">
+                        <details class="group bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <summary class="flex justify-between items-center font-semibold cursor-pointer text-lg text-brand-dark">
+                                Bagaimana cara menjadi mitra?
+                                <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </summary>
+                            <p class="mt-4 text-gray-600">Sangat mudah! Cukup isi form di halaman kontak kami. Tim kami akan segera menghubungi Anda untuk verifikasi data dan penjelasan lebih lanjut. Prosesnya cepat dan tidak dipungut biaya.</p>
+                        </details>
+                        <details class="group bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <summary class="flex justify-between items-center font-semibold cursor-pointer text-lg text-brand-dark">
+                                Apakah ada minimum order?
+                                <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </summary>
+                            <p class="mt-4 text-gray-600">Ya, kami memiliki minimum order yang sangat fleksibel dan disesuaikan dengan skala bisnis Anda. Tujuannya adalah untuk efisiensi biaya pengiriman. Detailnya akan dijelaskan oleh tim sales kami.</p>
+                        </details>
+                        <details class="group bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <summary class="flex justify-between items-center font-semibold cursor-pointer text-lg text-brand-dark">
+                                Area mana saja yang dijangkau?
+                                <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </summary>
+                            <p class="mt-4 text-gray-600">Saat ini kami melayani seluruh area Jabodetabek, Bandung Raya, dan Surabaya. Kami terus berekspansi untuk menjangkau lebih banyak kota di Indonesia.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================================== -->
+        <!-- "HALAMAN" KONTAK (CTA) -->
+        <!-- ======================================================================== -->
+        <section id="kontak-page" class="page-content">
+            <div class="cta-bg py-24 md:py-48 text-white">
+                <div class="container mx-auto px-6 text-center fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Siap Tingkatkan Profit Bisnis Anda?</h2>
+                    <p class="text-lg max-w-2xl mx-auto mb-8">Hanya butuh 2 menit untuk mendaftar. Dapatkan akses ke harga mitra, promo eksklusif, dan layanan prioritas. Mari tumbuh bersama!</p>
+                    <form id="contact-form" class="max-w-xl mx-auto bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+                        <div class="flex flex-col gap-4">
+                            <input type="text" placeholder="Nama Anda" class="w-full px-5 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-primary" required>
+                            <input type="tel" placeholder="Nomor WhatsApp Aktif" class="w-full px-5 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-primary" required>
+                            <input type="text" placeholder="Nama Usaha (Toko/Resto/Catering)" class="w-full px-5 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-primary" required>
+                        </div>
+                        <button type="submit" class="mt-6 w-full bg-brand-primary text-white font-bold px-12 py-4 rounded-lg shadow-xl hover:bg-blue-900 transition duration-300 transform hover:scale-105 text-lg">
+                            Hubungi Tim Ahli Kami
+                        </button>
+                        <p class="text-xs mt-4 text-blue-100">Tim kami akan segera menghubungi Anda untuk proses verifikasi.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================================================================== -->
+    <!-- FOOTER -->
+    <!-- ======================================================================== -->
+    <footer class="bg-brand-primary text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Mitra Sembako Nusantara</h3>
+                    <p class="text-blue-200">Partner terpercaya untuk pemenuhan kebutuhan pokok bisnis Anda.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Navigasi</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="nav-link text-blue-200 hover:text-white" data-page="home">Beranda</a></li>
+                        <li><a href="#keunggulan" class="nav-link text-blue-200 hover:text-white" data-page="keunggulan">Keunggulan</a></li>
+                        <li><a href="#produk" class="nav-link text-blue-200 hover:text-white" data-page="produk">Produk</a></li>
+                        <li><a href="#testimoni" class="nav-link text-blue-200 hover:text-white" data-page="testimoni">Testimoni</a></li>
+                        <li><a href="#faq" class="nav-link text-blue-200 hover:text-white" data-page="faq">FAQ</a></li>
+                        <li><a href="#kontak" class="nav-link text-blue-200 hover:text-white" data-page="kontak">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Hubungi Kami</h3>
+                    <ul class="space-y-2 text-blue-200">
+                        <li>Email: support@mitrasembako.co.id</li>
+                        <li>Telepon: (021) 1234 5678</li>
+                        <li>Alamat: Jl. Industri Raya No. 1, Jakarta</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Ikuti Kami</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-200 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.494v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-blue-700 pt-6 text-center">
+                <p class="text-blue-200">&copy; <span id="current-year"></span> Mitra Sembako Nusantara. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const allNavLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page-content');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const header = document.getElementById('main-header');
+            let currentPageState = 'home'; // Variabel untuk melacak halaman aktif
+
+            // --- Fungsi Utama untuk Menampilkan Halaman ---
+            function showPage(pageId) {
+                if (!pageId) pageId = 'home'; // Default ke home jika pageId tidak valid
+                
+                currentPageState = pageId;
+
+                // Sembunyikan semua halaman
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+
+                // Tampilkan halaman yang diminta
+                const targetPage = document.getElementById(pageId + '-page');
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                    window.scrollTo(0, 0); // Selalu scroll ke atas saat ganti halaman
+                }
+
+                // Update link navigasi yang aktif
+                allNavLinks.forEach(link => {
+                    link.classList.toggle('active', link.dataset.page === pageId);
+                });
+
+                // Dihapus karena menyebabkan error di environment sandbox
+                // location.hash = pageId;
+            }
+
+            // --- Event Listener untuk Semua Link Navigasi ---
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Mencegah perilaku default link
+                    const pageId = this.dataset.page;
+                    showPage(pageId);
+                    
+                    // Tutup menu mobile jika terbuka
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // --- Logika saat halaman pertama kali dimuat ---
+            function initialPageLoad() {
+                // Karena hash tidak bisa dibaca/ditulis, selalu mulai dari halaman 'home'
+                showPage('home');
+            }
+            initialPageLoad();
+
+            // --- Menangani Tombol Back/Forward di Browser ---
+            // Dihapus karena hash tidak lagi digunakan
+            // window.addEventListener('hashchange', initialPageLoad);
+
+
+            // --- Logika untuk Header (Scroll & Menu Mobile) ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+            });
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Logika untuk Animasi Scroll (Fade In Up) ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+            
+            // --- Logika untuk Form Kontak ---
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Terima kasih! Tim kami akan segera menghubungi Anda.');
+                contactForm.reset();
+            });
+        });
+    </script>
+
+</body>
+</html>
