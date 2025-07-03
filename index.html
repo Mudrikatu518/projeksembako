@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeJa Supply: Solusi Pasokan Sembako Premium untuk Bisnis Anda</title>
-    <!-- Google Fonts - Poppins for modern elegance, Montserrat for strong headings -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Montserrat for strong headings, Poppins for elegant body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for professional icons -->
+    <!-- PERBAIKAN KRITIS: Mengubah 'xintegrity' menjadi 'integrity' -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* Global Reset & Base Styles */
@@ -18,31 +19,33 @@
 
         body {
             font-family: 'Poppins', sans-serif; /* Primary font for body text */
-            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 100%); /* Deeper, richer gradient for a premium feel */
+            background: linear-gradient(135deg, #0A1931 0%, #154A4A 100%); /* Ultra-premium, deep blue-green gradient */
             min-height: 100vh;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.7; /* Improved readability */
             overflow-x: hidden; /* Prevent horizontal scroll on some animations */
         }
 
         /* Container for overall layout */
         .container {
-            max-width: 1280px; /* Slightly wider container */
+            max-width: 1360px; /* Even wider container for a grander feel */
             margin: 0 auto;
-            padding: 25px; /* Increased padding */
+            padding: 30px; /* Increased padding */
         }
 
         /* Header Section Styling */
         .header {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px); /* More intense blur for a frosted glass effect */
-            padding: 2rem 3rem; /* Generous padding */
-            border-radius: 30px; /* Softer, more modern corners */
-            margin-bottom: 3rem;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+            background: rgba(255, 255, 255, 0.95); /* Slightly less opaque for more glass effect */
+            backdrop-filter: blur(30px) saturate(180%); /* More intense blur and saturation for glassmorphism */
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            padding: 2.5rem 4rem; /* More generous padding */
+            border-radius: 40px; /* Even softer, more modern corners */
+            margin-bottom: 3.5rem;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.3); /* Deeper, more diffused shadow */
             position: relative;
             overflow: hidden;
-            animation: fadeInDown 0.8s ease-out forwards; /* Entrance animation */
+            animation: fadeInDown 1s ease-out forwards; /* Smoother entrance animation */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border for glass effect */
         }
 
         /* Subtle background pattern for header */
@@ -54,34 +57,34 @@
             width: 100%;
             height: 100%;
             background-image: radial-gradient(circle, #f0f0f0 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0.08; /* More subtle */
+            background-size: 25px 25px; /* Larger pattern */
+            opacity: 0.05; /* Even more subtle */
             z-index: 0;
         }
 
         .header h1 {
             font-family: 'Montserrat', sans-serif; /* Stronger font for headings */
             color: #1A202C;
-            font-size: 3.5rem; /* Larger, more impactful title */
-            margin-bottom: 1rem;
+            font-size: 4rem; /* Even larger, more impactful title */
+            margin-bottom: 1.2rem;
             text-align: center;
-            font-weight: 800; /* Extra bold */
-            letter-spacing: -1.5px; /* Tighter letter spacing for impact */
+            font-weight: 900; /* Black weight for maximum impact */
+            letter-spacing: -2px; /* Tighter letter spacing for impact */
             position: relative;
             z-index: 1;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Subtle text shadow */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* More pronounced text shadow */
         }
 
         .header h1 span {
-            color: #b21f1f; /* Accent color for brand name */
+            color: #FFC107; /* Luxurious gold accent color */
         }
 
         .header p {
-            color: #555;
+            color: #444; /* Slightly darker text for contrast */
             text-align: center;
-            font-size: 1.35rem; /* Larger, more inviting tagline */
-            line-height: 1.7;
-            margin-bottom: 2rem;
+            font-size: 1.45rem; /* Larger, more inviting tagline */
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
             position: relative;
             z-index: 1;
             font-weight: 500;
@@ -91,61 +94,71 @@
         .nav {
             display: flex;
             justify-content: center;
-            gap: 1.5rem; /* Increased gap for better spacing */
-            margin-top: 2rem;
+            gap: 1.8rem; /* Increased gap for better spacing */
+            margin-top: 2.5rem;
             position: relative;
             z-index: 1;
             flex-wrap: wrap; /* Allow wrapping on smaller screens */
         }
 
         .nav button {
-            background: linear-gradient(45deg, #2575FC, #6A11CB); /* Refined gradient */
+            background: linear-gradient(45deg, #1A202C, #34495E); /* Darker, more sophisticated button gradient */
             color: white;
             border: none;
-            padding: 1rem 2.2rem; /* Generous padding for buttons */
-            border-radius: 35px; /* More rounded, pill-like shape */
+            padding: 1.1rem 2.5rem; /* Generous padding for buttons */
+            border-radius: 40px; /* More rounded, pill-like shape */
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            transition: all 0.3s ease-in-out; /* Smoother transitions */
-            letter-spacing: 0.7px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother, more professional transitions */
+            letter-spacing: 0.8px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
             position: relative;
-            overflow: hidden; /* For ripple effect */
+            overflow: hidden;
             z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .nav button i {
+            margin-right: 0.7rem; /* Space between icon and text */
+            font-size: 1.2em; /* Slightly larger icon */
         }
 
         .nav button:hover {
-            transform: translateY(-4px) scale(1.03); /* More pronounced lift and slight scale */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(45deg, #6A11CB, #2575FC); /* Reverse gradient on hover */
+            transform: translateY(-6px) scale(1.05); /* More pronounced lift and scale */
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #34495E, #1A202C); /* Reverse gradient on hover */
         }
 
         .nav button.active {
-            background: linear-gradient(45deg, #FF6B6B, #EE4D4D); /* Distinct active color */
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-            transform: translateY(-2px);
-            border: 2px solid rgba(255,255,255,0.5); /* Subtle white border for active state */
+            background: linear-gradient(45deg, #FFC107, #FF9800); /* Luxurious gold active color */
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.5);
+            transform: translateY(-3px);
+            border: 2px solid rgba(255,255,255,0.7); /* Prominent white border for active state */
+            color: #1A202C; /* Dark text on gold button */
+            text-shadow: none;
         }
 
         /* Main Content Area Styling */
         .content {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            padding: 3.5rem; /* More generous padding */
-            border-radius: 30px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            padding: 4rem; /* More generous padding */
+            border-radius: 40px;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.3);
+            margin-bottom: 3.5rem;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border for glass effect */
         }
 
         /* Section Display Control */
         .section {
             display: none;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth section transitions */
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smoother section transitions */
         }
 
         .section.active {
@@ -159,298 +172,317 @@
             font-family: 'Montserrat', sans-serif;
             text-align: center;
             color: #1A202C;
-            font-size: 2.8rem; /* Larger section headings */
-            margin-bottom: 3rem;
-            font-weight: 700;
+            font-size: 3.2rem; /* Larger section headings */
+            margin-bottom: 3.5rem;
+            font-weight: 800;
             position: relative;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.08);
         }
 
         h2::after {
             content: '';
             display: block;
-            width: 100px; /* Wider underline */
-            height: 5px; /* Thicker underline */
-            background: linear-gradient(45deg, #FF6B6B, #EE4D4D); /* Accent gradient */
-            margin: 20px auto 0;
-            border-radius: 3px;
+            width: 120px; /* Wider underline */
+            height: 6px; /* Thicker underline */
+            background: linear-gradient(45deg, #FFC107, #FF9800); /* Gold accent gradient */
+            margin: 25px auto 0;
+            border-radius: 4px;
         }
 
         h3 {
             font-family: 'Montserrat', sans-serif;
-            color: #b21f1f; /* Accent color for subheadings */
-            font-size: 2.2rem; /* Larger subheadings */
-            margin-bottom: 1.5rem;
+            color: #FFC107; /* Gold accent color for subheadings */
+            font-size: 2.5rem; /* Larger subheadings */
+            margin-bottom: 1.8rem;
             font-weight: 700;
-            text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.03);
+            text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.05);
         }
 
         /* Products Grid Styling */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Larger, more flexible cards */
-            gap: 2.5rem; /* Increased gap */
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Larger, more flexible cards */
+            gap: 3rem; /* Increased gap */
+            margin-top: 3.5rem;
         }
 
         /* Product Card Styling */
         .product-card {
             background: white;
-            border-radius: 25px; /* More rounded */
-            padding: 2.2rem; /* Increased padding */
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12); /* Deeper shadow */
-            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation curve */
+            border-radius: 30px; /* More rounded */
+            padding: 2.5rem; /* Increased padding */
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation curve */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             overflow: hidden;
             position: relative;
-            border: 1px solid #eee; /* Subtle border */
+            border: 1px solid rgba(255, 255, 255, 0.5); /* Subtle white border */
+            background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Subtle gradient for card background */
         }
 
         .product-card::before { /* Subtle background overlay for products */
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(178, 31, 31, 0.03) 0%, transparent 70%); /* Light radial gradient */
+            top: -60%;
+            left: -60%;
+            width: 220%;
+            height: 220%;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.05) 0%, transparent 70%); /* Light gold radial gradient */
             border-radius: 50%;
             z-index: 0;
-            transition: transform 0.5s ease-out;
+            transition: transform 0.6s ease-out;
         }
 
         .product-card:hover {
-            transform: translateY(-12px) scale(1.02); /* More dynamic lift and scale */
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            transform: translateY(-15px) scale(1.03); /* More dynamic lift and scale */
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
         }
 
         .product-card:hover::before {
-            transform: scale(1.1); /* Expand background on hover */
+            transform: scale(1.15); /* Expand background on hover */
         }
 
         .product-image {
             width: 100%;
-            height: 200px; /* Taller image area */
-            background: linear-gradient(45deg, #F9D423, #FF4E50); /* Vibrant gradient */
-            border-radius: 18px; /* More rounded */
+            height: 220px; /* Taller image area */
+            background: linear-gradient(45deg, #FFD700, #FFA500); /* Richer gold-orange gradient */
+            border-radius: 20px; /* More rounded */
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 4.5rem; /* Larger emoji */
-            margin-bottom: 1.8rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            font-size: 5rem; /* Larger emoji */
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             position: relative;
             z-index: 1;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         .product-card:hover .product-image {
-            transform: scale(1.05); /* Slight scale on image on card hover */
+            transform: scale(1.08); /* Slight scale on image on card hover */
         }
 
         .product-name {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem; /* Larger, bolder name */
-            font-weight: 700;
+            font-size: 1.8rem; /* Larger, bolder name */
+            font-weight: 800;
             color: #1A202C;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             position: relative;
             z-index: 1;
         }
 
         .product-price {
-            font-size: 1.45rem; /* Larger, more prominent price */
-            color: #b21f1f; /* Accent color for price */
+            font-size: 1.6rem; /* Larger, more prominent price */
+            color: #FFC107; /* Gold accent for price */
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             position: relative;
             z-index: 1;
+            text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.05);
         }
 
         .product-actions {
             display: flex;
-            gap: 1rem; /* Increased gap */
+            gap: 1.2rem; /* Increased gap */
             margin-top: auto;
             position: relative;
             z-index: 1;
+            flex-wrap: wrap; /* Allow buttons to wrap */
         }
 
         /* General Button Styling */
         .btn {
-            padding: 1rem 2rem;
+            padding: 1.1rem 2.2rem;
             border: none;
-            border-radius: 30px;
+            border-radius: 35px;
             cursor: pointer;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 600;
             transition: all 0.3s ease-in-out;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
             flex-grow: 1; /* Allow buttons to grow */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #28b463, #2ecc71); /* Green for primary action */
+            background: linear-gradient(45deg, #28a745, #218838); /* Richer green for primary action */
             color: white;
         }
 
         .btn-secondary {
-            background: linear-gradient(45deg, #F9D423, #FF4E50); /* Orange/Yellow for secondary action */
+            background: linear-gradient(45deg, #FFC107, #FF9800); /* Gold for secondary action */
+            color: #1A202C; /* Dark text on gold */
+            text-shadow: none;
+        }
+
+        .btn-gemini { /* New style for Gemini-powered button */
+            background: linear-gradient(45deg, #6A11CB, #2575FC); /* Purple/Blue gradient */
             color: white;
+            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.25);
+            font-size: 0.95rem; /* Slightly smaller for 3rd button */
+            padding: 0.9rem 1.8rem;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-            opacity: 0.95;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0.98;
         }
 
         /* Floating Cart Icon */
         .cart {
             position: fixed;
-            top: 40px; /* Slightly lower */
-            right: 40px; /* Slightly more inward */
-            background: linear-gradient(45deg, #b21f1f, #EE4D4D); /* Stronger accent color */
-            color: white;
-            padding: 1.4rem; /* Larger icon area */
+            top: 50px; /* Slightly lower */
+            right: 50px; /* Slightly more inward */
+            background: linear-gradient(45deg, #FFC107, #FF9800); /* Stronger gold accent color */
+            color: #1A202C; /* Dark text on gold */
+            padding: 1.6rem; /* Larger icon area */
             border-radius: 50%;
-            width: 75px; /* Larger */
-            height: 75px; /* Larger */
+            width: 80px; /* Larger */
+            height: 80px; /* Larger */
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem; /* Larger icon */
+            font-size: 2.2rem; /* Larger icon */
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-            transition: all 0.3s ease-in-out;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             z-index: 999;
-            border: 3px solid rgba(255,255,255,0.6); /* Prominent white border */
+            border: 4px solid rgba(255,255,255,0.8); /* Prominent white border */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .cart:hover {
-            transform: scale(1.18) rotate(8deg); /* More dynamic hover */
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            transform: scale(1.2) rotate(10deg); /* More dynamic hover */
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
 
         .cart-count {
             position: absolute;
-            top: -10px; /* Adjusted position */
-            right: -10px; /* Adjusted position */
-            background: #1a2a6c; /* Brand accent color */
+            top: -12px; /* Adjusted position */
+            right: -12px; /* Adjusted position */
+            background: #0A1931; /* Brand primary color for count */
             color: white;
             border-radius: 50%;
-            width: 32px; /* Larger count bubble */
-            height: 32px;
+            width: 35px; /* Larger count bubble */
+            height: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: bold;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-            border: 2px solid white; /* White border for count */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: 3px solid white; /* White border for count */
         }
 
         /* Order Form Styling */
         .order-form {
             background: white;
-            padding: 3rem;
-            border-radius: 25px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+            padding: 3.5rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Subtle gradient for form background */
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         .form-group {
-            margin-bottom: 2.5rem; /* Increased margin */
+            margin-bottom: 3rem; /* Increased margin */
         }
 
         .form-group label {
             display: block;
             color: #1A202C;
             font-weight: 600;
-            margin-bottom: 1rem; /* Increased margin */
-            font-size: 1.1rem;
+            margin-bottom: 1.2rem; /* Increased margin */
+            font-size: 1.15rem;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 1.3rem; /* Larger input fields */
+            padding: 1.4rem; /* Larger input fields */
             border: 2px solid #E0E0E0;
-            border-radius: 15px; /* More rounded */
-            font-size: 1.05rem;
+            border-radius: 18px; /* More rounded */
+            font-size: 1.1rem;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
             color: #333;
             background-color: #fcfcfc; /* Slightly off-white background */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); /* Subtle inset shadow */
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #1a2a6c; /* Focus color matches brand primary */
-            box-shadow: 0 0 0 5px rgba(26, 42, 108, 0.15); /* More prominent glow */
+            border-color: #0A1931; /* Focus color matches brand primary */
+            box-shadow: 0 0 0 6px rgba(10, 25, 49, 0.2); /* More prominent glow */
         }
 
         /* Stats Section Styling */
         .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Larger, more robust stats cards */
-            gap: 2rem;
-            margin-bottom: 3.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Larger, more robust stats cards */
+            gap: 2.5rem;
+            margin-bottom: 4rem;
         }
 
         .stat-card {
             background: white;
-            padding: 2.5rem; /* Increased padding */
-            border-radius: 25px;
+            padding: 2.8rem;
+            border-radius: 30px;
             text-align: center;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-bottom: 6px solid #1a2a6c; /* Stronger accent border */
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border-bottom: 8px solid #0A1931;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
         }
 
-        .stat-card::before { /* Subtle overlay for stats */
+        .stat-card::before {
             content: '';
             position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 120%;
-            height: 120%;
-            background: rgba(178, 31, 31, 0.05); /* Light accent overlay */
-            border-radius: 25px;
+            top: -30px;
+            left: -30px;
+            width: 130%;
+            height: 130%;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.08) 0%, transparent 70%);
+            border-radius: 30px;
             z-index: 0;
-            transform: rotate(5deg);
+            transform: rotate(8deg);
         }
 
         .stat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
         }
 
         .stat-number {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.2rem; /* Larger, bolder numbers */
-            font-weight: 800;
-            color: #b21f1f; /* Accent color */
-            margin-bottom: 0.8rem;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #FFC107;
+            margin-bottom: 1rem;
             position: relative;
             z-index: 1;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .stat-label {
             color: #555;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 500;
             position: relative;
             z-index: 1;
         }
 
-        /* Modal Styling (for Cart & Custom Alert) */
+        /* Modal Styling (for Cart & Custom Alert & Product Description) */
         .modal {
             display: none;
             position: fixed;
@@ -458,13 +490,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7); /* Darker, more immersive overlay */
+            background: rgba(0, 0, 0, 0.8); /* Darker, more immersive overlay */
             z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.4s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
         }
 
         .modal.active {
@@ -474,15 +506,17 @@
 
         .modal-content {
             background: white;
-            padding: 3.5rem; /* Generous padding */
-            border-radius: 25px;
+            padding: 4rem; /* Generous padding */
+            border-radius: 30px;
             width: 90%;
-            max-width: 600px; /* Wider modal */
+            max-width: 650px; /* Wider modal */
             position: relative;
-            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.4);
-            transform: translateY(30px) scale(0.95); /* Initial transform for animation */
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            transform: translateY(40px) scale(0.9); /* Initial transform for animation */
             opacity: 0;
-            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease-out;
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.5s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
         }
 
         .modal.active .modal-content {
@@ -492,73 +526,84 @@
 
         .close {
             position: absolute;
-            top: 25px;
-            right: 30px;
-            font-size: 2.8rem; /* Larger close button */
+            top: 30px;
+            right: 35px;
+            font-size: 3rem; /* Larger close button */
             cursor: pointer;
             color: #777;
-            transition: color 0.2s ease, transform 0.2s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .close:hover {
-            color: #b21f1f; /* Accent color on hover */
-            transform: rotate(90deg); /* Spin on hover */
+            color: #FFC107; /* Gold accent on hover */
+            transform: rotate(90deg) scale(1.1); /* Spin and slight scale on hover */
         }
 
         /* WhatsApp Button Styling */
         .whatsapp-btn {
-            background: linear-gradient(45deg, #25d366, #128c7e); /* WhatsApp green */
+            background: linear-gradient(45deg, #25d366, #128c7e);
             color: white;
-            padding: 1.3rem 2.8rem; /* Larger, more prominent button */
+            padding: 1.4rem 3rem;
             border: none;
-            border-radius: 35px;
-            font-size: 1.2rem; /* Larger text */
+            border-radius: 40px;
+            font-size: 1.25rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.8rem;
-            margin: 2rem auto 0;
-            transition: all 0.3s ease-in-out;
+            gap: 1rem;
+            margin: 2.5rem auto 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             font-weight: 600;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            text-decoration: none; /* For link-like buttons */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.2em;
         }
 
         .whatsapp-btn:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
             background: linear-gradient(45deg, #128c7e, #25d366); /* Reverse gradient on hover */
         }
 
         /* Info Card Styling (for Home and About sections) */
         .info-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            padding: 2.8rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-bottom: 4px solid #b21f1f; /* Accent border */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border-bottom: 5px solid #FFC107;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
         }
 
         .info-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+            transform: translateY(-10px);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.18);
         }
 
         .info-card h4 {
             font-family: 'Montserrat', sans-serif;
-            color: #1a2a6c; /* Primary accent for info cards */
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            color: #0A1931;
+            font-size: 1.55rem;
+            margin-bottom: 1.2rem;
             font-weight: 700;
+        }
+
+        .info-card h4 i {
+            margin-right: 0.6rem;
+            color: #FFC107;
         }
 
         .info-card p {
             color: #666;
-            line-height: 1.7;
-            font-size: 1rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
         }
 
         /* Cart Item Styling within Modal */
@@ -566,9 +611,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid #EFEFEF;
-            font-size: 1.05rem;
+            padding: 1.4rem 0;
+            border-bottom: 1px solid #EAEAEA;
+            font-size: 1.1rem;
         }
 
         .cart-item:last-child {
@@ -577,7 +622,7 @@
 
         .cart-item-info strong {
             color: #1A202C;
-            font-size: 1.15rem;
+            font-size: 1.25rem;
         }
 
         .cart-item-info small {
@@ -587,42 +632,42 @@
         .cart-item-actions {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         .cart-item-actions button {
             background: #EE4D4D;
             color: white;
             border: none;
-            width: 38px; /* Larger buttons */
-            height: 38px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            transition: background 0.2s ease, transform 0.2s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
         .cart-item-actions button:first-child {
-            background: #EE4D4D;
+            background: linear-gradient(45deg, #dc3545, #c82333);
         }
         .cart-item-actions button:last-child {
-            background: #28b463;
+            background: linear-gradient(45deg, #28a745, #218838);
         }
 
         .cart-item-actions button:hover {
-            opacity: 0.9;
-            transform: scale(1.1);
+            opacity: 0.95;
+            transform: scale(1.15);
         }
 
         #cartTotal {
             text-align: right;
             font-weight: bold;
-            margin-top: 2rem;
-            color: #1a2a6c; /* Brand primary color for total */
-            font-size: 1.6rem;
-            padding-top: 1rem;
-            border-top: 2px dashed #eee; /* Dotted line for total */
+            margin-top: 2.5rem;
+            color: #0A1931;
+            font-size: 1.8rem;
+            padding-top: 1.2rem;
+            border-top: 3px dashed #E0E0E0;
         }
 
         .text-center {
@@ -637,12 +682,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.75);
             z-index: 1002;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.4s ease-in-out;
         }
 
         .custom-alert-overlay.active {
@@ -652,15 +697,17 @@
 
         .custom-alert-box {
             background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.4);
             text-align: center;
-            max-width: 450px;
+            max-width: 500px;
             width: 90%;
-            transform: translateY(20px) scale(0.9);
+            transform: translateY(30px) scale(0.9);
             opacity: 0;
-            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
         }
 
         .custom-alert-overlay.active .custom-alert-box {
@@ -671,60 +718,60 @@
         .custom-alert-box h4 {
             font-family: 'Montserrat', sans-serif;
             color: #1A202C;
-            font-size: 1.8rem;
-            margin-bottom: 1.2rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 700;
         }
 
         .custom-alert-box p {
             color: #555;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
         }
 
         .custom-alert-box button {
-            background: linear-gradient(45deg, #2575FC, #6A11CB);
+            background: linear-gradient(45deg, #0A1931, #154A4A);
             color: white;
-            padding: 0.9rem 2rem;
+            padding: 1rem 2.2rem;
             border: none;
-            border-radius: 30px;
-            font-size: 1rem;
+            border-radius: 35px;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
         .custom-alert-box button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
         }
 
         /* Notification Toast Styling */
         .notification-toast {
             position: fixed;
-            top: 140px; /* Position below header and cart */
-            right: 40px;
-            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            top: 160px;
+            right: 50px;
+            background: linear-gradient(45deg, #28a745, #218838);
             color: white;
-            padding: 1.2rem 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 1.3rem 2.8rem;
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
             z-index: 1001;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 500;
             opacity: 0;
-            transform: translateX(120%);
-            animation: slideInToast 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards, fadeOutToast 0.6s ease-in 3s forwards; /* Longer animation */
+            transform: translateX(150%);
+            animation: slideInToast 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) forwards, fadeOutToast 0.7s ease-in 3.5s forwards;
         }
 
         @keyframes slideInToast {
-            from { transform: translateX(120%); opacity: 0; }
+            from { transform: translateX(150%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
         @keyframes fadeOutToast {
             from { opacity: 1; transform: translateX(0); }
-            to { opacity: 0; transform: translateX(120%); }
+            to { opacity: 0; transform: translateX(150%); }
         }
 
         /* Preloader Styling */
@@ -734,31 +781,31 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 100%);
+            background: linear-gradient(135deg, #0A1931 0%, #154A4A 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.5s ease-out;
+            transition: opacity 0.7s ease-out;
             flex-direction: column;
         }
 
         .loader {
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top: 8px solid #fff;
+            border: 10px solid rgba(255, 255, 255, 0.3);
+            border-top: 10px solid #FFC107;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             animation: spin 1s linear infinite;
         }
 
         #preloader h1 {
             color: white;
             font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            margin-top: 20px;
+            font-size: 3.5rem;
+            margin-top: 25px;
             opacity: 0;
-            animation: fadeIn 1s ease-in 0.5s forwards;
+            animation: fadeIn 1.2s ease-in 0.7s forwards;
         }
 
         @keyframes spin {
@@ -772,122 +819,122 @@
         }
 
         /* Responsive Adjustments */
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
             .header h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             .header p {
-                font-size: 1.15rem;
+                font-size: 1.25rem;
             }
             h2 {
-                font-size: 2.4rem;
-            }
-            h3 {
-                font-size: 1.9rem;
-            }
-            .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-            .content {
-                padding: 2.5rem;
-            }
-            .stat-number {
                 font-size: 2.8rem;
             }
+            h3 {
+                font-size: 2.2rem;
+            }
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            .content {
+                padding: 3rem;
+            }
+            .stat-number {
+                font-size: 3rem;
+            }
             .cart {
-                width: 65px;
-                height: 65px;
-                font-size: 1.8rem;
-                top: 30px;
-                right: 30px;
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+                top: 40px;
+                right: 40px;
             }
             .cart-count {
-                width: 28px;
-                height: 28px;
-                font-size: 0.85rem;
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
             }
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 20px;
             }
             .header {
-                padding: 1.5rem 2rem;
-                margin-bottom: 2rem;
+                padding: 2rem 2.5rem;
+                margin-bottom: 2.5rem;
             }
             .header h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             .header p {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
             }
             .nav {
-                gap: 0.8rem;
+                gap: 1rem;
                 flex-direction: column; /* Stack buttons vertically */
                 align-items: center;
             }
             .nav button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.95rem;
+                padding: 1rem 2rem;
+                font-size: 1.05rem;
                 width: 90%; /* Make buttons wider */
-                max-width: 300px;
+                max-width: 350px;
             }
             .content {
-                padding: 2rem;
+                padding: 2.5rem;
             }
             h2 {
-                font-size: 2rem;
-                margin-bottom: 2.5rem;
+                font-size: 2.4rem;
+                margin-bottom: 3rem;
             }
             h3 {
-                font-size: 1.6rem;
+                font-size: 1.9rem;
             }
             .products-grid {
                 grid-template-columns: 1fr; /* Single column on mobile */
             }
             .product-image {
-                height: 150px;
-                font-size: 3.5rem;
+                height: 180px;
+                font-size: 4rem;
             }
             .product-name {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
             .product-price {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
             .btn {
-                padding: 0.8rem 1.2rem;
-                font-size: 0.95rem;
+                padding: 1rem 1.8rem;
+                font-size: 1rem;
             }
             .stats {
                 grid-template-columns: 1fr;
             }
             .stat-card {
-                padding: 2rem;
+                padding: 2.2rem;
             }
             .stat-number {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             .modal-content {
-                padding: 2.5rem;
+                padding: 3rem;
             }
             .close {
-                font-size: 2.2rem;
-                top: 15px;
-                right: 20px;
+                font-size: 2.5rem;
+                top: 20px;
+                right: 25px;
             }
             .whatsapp-btn {
-                padding: 1rem 2rem;
-                font-size: 1.05rem;
+                padding: 1.1rem 2.2rem;
+                font-size: 1.1rem;
             }
             .notification-toast {
-                top: 100px;
-                right: 20px;
-                left: 20px;
+                top: 120px;
+                right: 25px;
+                left: 25px;
                 transform: translateX(0); /* No side animation on small screens */
-                animation: fadeInToastMobile 0.6s ease-out forwards, fadeOutToastMobile 0.6s ease-in 3s forwards;
+                animation: fadeInToastMobile 0.7s ease-out forwards, fadeOutToastMobile 0.7s ease-in 3.5s forwards;
             }
             @keyframes fadeInToastMobile {
                 from { opacity: 0; }
@@ -901,54 +948,54 @@
 
         @media (max-width: 480px) {
             .header h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             .header p {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
             .content {
-                padding: 1.5rem;
+                padding: 2rem;
             }
             h2 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             h3 {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
             .product-image {
-                height: 100px;
-                font-size: 3rem;
+                height: 150px;
+                font-size: 3.5rem;
             }
             .product-name {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
             .product-price {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             .btn {
-                font-size: 0.9rem;
-                padding: 0.7rem 1rem;
+                font-size: 0.95rem;
+                padding: 0.9rem 1.5rem;
             }
             .cart {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-                top: 15px;
-                right: 15px;
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+                top: 20px;
+                right: 20px;
             }
             .cart-count {
-                width: 20px;
-                height: 20px;
-                font-size: 0.65rem;
+                width: 25px;
+                height: 25px;
+                font-size: 0.8rem;
             }
             .modal-content {
-                padding: 1.5rem;
+                padding: 2rem;
             }
             .custom-alert-box h4 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             .custom-alert-box p {
-                font-size: 1rem;
+                font-size: 1.05rem;
             }
         }
     </style>
@@ -1109,7 +1156,7 @@
                         <i class="fas fa-check-circle"></i> Konfirmasi & Kirim Pesanan via WhatsApp
                     </button>
                     <p class="text-center" style="color: #777; margin-top: 1.5rem; font-size: 0.9rem;">
-                        Dengan mengklik "Konfirmasi & Kirim Pesanan", Anda menyetujui <a href="#" style="color: #1a2a6c; text-decoration: none; font-weight: 600;">Syarat & Ketentuan Layanan</a> kami.
+                        Dengan mengklik "Konfirmasi & Kirim Pesanan", Anda menyetujui <a href="#" style="color: #0A1931; text-decoration: none; font-weight: 600;">Syarat & Ketentuan Layanan</a> kami.
                     </p>
                 </div>
             </section>
@@ -1130,12 +1177,12 @@
                     
                     <h3 style="margin-top: 3rem;">Keunggulan Kompetitif BeJa Supply</h3>
                     <ul style="color: #555; line-height: 2.4; list-style: none; padding-left: 0;">
-                        <li style="margin-bottom: 0.8rem;"><span style="color: #28b463; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Harga Distributor Langsung:</strong> Dapatkan margin keuntungan optimal dengan harga terbaik tanpa perantara.</li>
-                        <li style="margin-bottom: 0.8rem;"><span style="color: #28b463; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Stok Lengkap & Selalu Tersedia:</strong> Jaminan pasokan stabil, bisnis Anda berjalan tanpa hambatan.</li>
-                        <li style="margin-bottom: 0.8rem;"><span style="color: #28b463; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Pengiriman Tepat Waktu & Terjamin:</strong> Setiap janji adalah komitmen. Barang tiba sesuai jadwal, setiap saat.</li>
-                        <li style="margin-bottom: 0.8rem;"><span style="color: #28b463; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Sistem Kredit Fleksibel & Menguntungkan:</strong> Kelola keuangan dengan cerdas, kembangkan bisnis tanpa tekanan modal.</li>
-                        <li style="margin-bottom: 0.8rem;"><span style="color: #28b463; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Dukungan Mitra 24/7:</strong> Tim ahli kami siap sedia memberikan solusi cepat dan efektif kapan pun Anda butuhkan.</li>
-                        <li style="margin-bottom: 0.8rem;"><span style="color: #28b463; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Konsultasi Bisnis Eksklusif & Gratis:</strong> Dapatkan wawasan strategis untuk mengoptimalkan potensi warung Anda.</li>
+                        <li style="margin-bottom: 0.8rem;"><span style="color: #28a745; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Harga Distributor Langsung:</strong> Dapatkan margin keuntungan optimal dengan harga terbaik tanpa perantara.</li>
+                        <li style="margin-bottom: 0.8rem;"><span style="color: #28a745; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Stok Lengkap & Selalu Tersedia:</strong> Jaminan pasokan stabil, bisnis Anda berjalan tanpa hambatan.</li>
+                        <li style="margin-bottom: 0.8rem;"><span style="color: #28a745; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Pengiriman Tepat Waktu & Terjamin:</strong> Setiap janji adalah komitmen. Barang tiba sesuai jadwal, setiap saat.</li>
+                        <li style="margin-bottom: 0.8rem;"><span style="color: #28a745; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Sistem Kredit Fleksibel & Menguntungkan:</strong> Kelola keuangan dengan cerdas, kembangkan bisnis tanpa tekanan modal.</li>
+                        <li style="margin-bottom: 0.8rem;"><span style="color: #28a745; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Dukungan Mitra 24/7:</strong> Tim ahli kami siap sedia memberikan solusi cepat dan efektif kapan pun Anda butuhkan.</li>
+                        <li style="margin-bottom: 0.8rem;"><span style="color: #28a745; font-weight: bold; font-size: 1.2em; margin-right: 0.8rem;"><i class="fas fa-check-circle"></i></span> <strong>Konsultasi Bisnis Eksklusif & Gratis:</strong> Dapatkan wawasan strategis untuk mengoptimalkan potensi warung Anda.</li>
                     </ul>
                 </div>
                 
@@ -1144,9 +1191,9 @@
                     <p style="color: #555; margin-bottom: 2rem; font-size: 1.05rem;">
                         Jangan lewatkan kesempatan untuk berkolaborasi dengan partner terbaik. Hubungi tim konsultan kami sekarang untuk diskusi yang transformatif.
                     </p>
-                    <p style="color: #1a2a6c; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.2rem;"><i class="fas fa-phone-alt"></i> 0812-3456-7890</p>
-                    <p style="color: #1a2a6c; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.2rem;"><i class="fas fa-envelope"></i> info@bejasupply.com</p>
-                    <p style="color: #1a2a6c; font-size: 1.5rem; font-weight: 700; margin-bottom: 2.5rem;"><i class="fas fa-map-marked-alt"></i> Jl. Inovasi Bisnis No. 45, Jakarta Selatan (Kantor Pusat)</p>
+                    <p style="color: #0A1931; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.2rem;"><i class="fas fa-phone-alt"></i> 0812-3456-7890</p>
+                    <p style="color: #0A1931; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.2rem;"><i class="fas fa-envelope"></i> info@bejasupply.com</p>
+                    <p style="color: #0A1931; font-size: 1.5rem; font-weight: 700; margin-bottom: 2.5rem;"><i class="fas fa-map-marked-alt"></i> Jl. Inovasi Bisnis No. 45, Jakarta Selatan (Kantor Pusat)</p>
                     
                     <button class="whatsapp-btn" onclick="contactWhatsApp()">
                         <i class="fab fa-whatsapp"></i> Chat Langsung dengan Konsultan Kami
@@ -1171,6 +1218,22 @@
         </div>
     </div>
 
+    <!-- Product Description Modal (NEW) -->
+    <div id="productDescriptionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductDescriptionModal()">&times;</span>
+            <h3 style="color: #1A202C; margin-bottom: 1.5rem; text-align: center;">✨ Deskripsi Produk Cerdas</h3>
+            <div id="productDescriptionContent" style="text-align: center;">
+                <p id="productDescriptionName" style="font-size: 1.3rem; font-weight: 600; color: #0A1931; margin-bottom: 1rem;"></p>
+                <div id="productDescriptionLoader" class="loader" style="margin: 2rem auto; border-top: 8px solid #6A11CB; border-color: rgba(106, 17, 203, 0.3);"></div>
+                <p id="productDescriptionText" style="color: #555; line-height: 1.8; font-size: 1.05rem; white-space: pre-wrap; text-align: left;"></p>
+                <button class="whatsapp-btn" onclick="copyDescriptionToClipboard()" style="margin-top: 2rem;">
+                    <i class="fas fa-copy"></i> Salin Deskripsi
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Custom Alert Modal -->
     <div id="customAlert" class="custom-alert-overlay">
         <div class="custom-alert-box">
@@ -1181,7 +1244,7 @@
     </div>
 
     <script>
-        // Sample product data - Keeping original products for consistency but assuming future premium additions
+        // Sample product data
         const products = [
             { id: 1, name: 'Beras Premium 5kg', price: 75000, category: 'beras', emoji: '🍚' },
             { id: 2, name: 'Minyak Goreng Tropical 2L', price: 32000, category: 'minyak', emoji: '🫒' },
@@ -1206,7 +1269,7 @@
                 preloader.style.opacity = '0';
                 setTimeout(() => {
                     preloader.style.display = 'none';
-                }, 500); // Match CSS transition duration
+                }, 700); // Match CSS transition duration
             }
             // Initialize other app components after preloader hides
             initializeApp();
@@ -1221,12 +1284,25 @@
 
         // --- Section Management ---
         function showSection(sectionId, clickedButton) {
+            console.log('showSection called for:', sectionId); // Debugging log: Konfirmasi panggilan fungsi
+            if (clickedButton) {
+                console.log('Clicked button element:', clickedButton); // Debugging log: Elemen tombol yang diklik
+            } else {
+                console.log('showSection called programmatically, no specific button clicked.');
+            }
+
             // Hide all sections
             document.querySelectorAll('.section').forEach(sec => {
                 sec.classList.remove('active');
             });
             // Show selected section
-            document.getElementById(sectionId).classList.add('active');
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                console.log('Section activated:', sectionId); // Debugging log: Konfirmasi section aktif
+            } else {
+                console.error('Target section not found:', sectionId); // Debugging log: Error jika section tidak ditemukan
+            }
             
             // Update nav buttons active state
             document.querySelectorAll('.nav button').forEach(btn => {
@@ -1234,11 +1310,13 @@
             });
             if (clickedButton) {
                 clickedButton.classList.add('active');
+                console.log('Active class added to clicked button.'); // Debugging log: Konfirmasi tombol aktif
             } else {
                 // Fallback for initial load or programmatic calls without a button click
                 const targetButton = document.querySelector(`.nav button[onclick*="${sectionId}"]`);
                 if (targetButton) {
                     targetButton.classList.add('active');
+                    console.log('Active class added to programmatic target button.');
                 }
             }
         }
@@ -1274,6 +1352,9 @@
                         </button>
                         <button class="btn btn-secondary" onclick="quickOrder(${product.id})">
                             <i class="fab fa-whatsapp"></i> Pesan
+                        </button>
+                        <button class="btn btn-gemini" onclick="showProductDescriptionModal(${product.id})">
+                            ✨ Deskripsi Cerdas
                         </button>
                     </div>
                 </div>
@@ -1443,6 +1524,96 @@
             window.open(whatsappUrl, '_blank');
         }
 
+        // --- Product Description AI Feature (NEW) ---
+        async function showProductDescriptionModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) {
+                showCustomAlert('Produk Tidak Ditemukan', 'Detail produk tidak dapat ditemukan.');
+                return;
+            }
+
+            const modal = document.getElementById('productDescriptionModal');
+            const productNameElem = document.getElementById('productDescriptionName');
+            const productDescriptionLoader = document.getElementById('productDescriptionLoader');
+            const productDescriptionText = document.getElementById('productDescriptionText');
+            const copyButton = modal.querySelector('.whatsapp-btn');
+
+            productNameElem.textContent = product.name;
+            productDescriptionText.textContent = ''; // Clear previous description
+            productDescriptionLoader.style.display = 'block'; // Show loader
+            copyButton.style.display = 'none'; // Hide copy button initially
+
+            modal.classList.add('active');
+
+            try {
+                const description = await generateProductDescription(product.name, product.category);
+                productDescriptionText.textContent = description;
+                copyButton.setAttribute('data-description', description); // Store description for copying
+                copyButton.style.display = 'flex'; // Show copy button
+            } catch (error) {
+                console.error('Error generating product description:', error);
+                productDescriptionText.textContent = 'Maaf, gagal menghasilkan deskripsi produk. Silakan coba lagi nanti.';
+            } finally {
+                productDescriptionLoader.style.display = 'none'; // Hide loader
+            }
+        }
+
+        function closeProductDescriptionModal() {
+            document.getElementById('productDescriptionModal').classList.remove('active');
+        }
+
+        async function generateProductDescription(productName, productCategory) {
+            const prompt = `Buat deskripsi produk sembako yang menarik dan persuasif untuk "${productName}" (kategori: ${productCategory}). Fokus pada manfaat bagi pembeli grosir/warung, kualitas, dan keunggulan. Gunakan bahasa yang profesional namun mudah dipahami. Maksimal 100 kata.`;
+            
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    console.error('Unexpected API response structure:', result);
+                    throw new Error('Invalid API response');
+                }
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                throw error;
+            }
+        }
+
+        function copyDescriptionToClipboard() {
+            const copyButton = document.getElementById('productDescriptionModal').querySelector('.whatsapp-btn');
+            const description = copyButton.getAttribute('data-description');
+            
+            if (description) {
+                // Use document.execCommand('copy') for better compatibility in iframes
+                const textarea = document.createElement('textarea');
+                textarea.value = description;
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    showNotification('Deskripsi berhasil disalin ke clipboard!', 'success');
+                } catch (err) {
+                    console.error('Failed to copy text:', err);
+                    showCustomAlert('Gagal Menyalin', 'Maaf, gagal menyalin deskripsi. Silakan salin secara manual.');
+                }
+                document.body.removeChild(textarea);
+            }
+        }
+
         // --- Custom Alert System (Replacing window.alert) ---
         function showCustomAlert(title, message) {
             document.getElementById('alertTitle').textContent = title;
@@ -1524,9 +1695,14 @@
 
         // Close modal when clicking outside (for cart modal)
         window.addEventListener('click', function(event) {
-            const modal = document.getElementById('cartModal');
-            if (event.target === modal) {
+            const cartModal = document.getElementById('cartModal');
+            const productDescriptionModal = document.getElementById('productDescriptionModal');
+
+            if (event.target === cartModal) {
                 closeCart();
+            }
+            if (event.target === productDescriptionModal) {
+                closeProductDescriptionModal();
             }
         });
 
